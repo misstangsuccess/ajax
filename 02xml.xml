@@ -1,0 +1,85 @@
+<?xml version="1.0"encoding="utf-8"?>
+<message>
+    <teacher>
+        <person>
+            <name>tom</name>
+            <age>20</age>
+            <sex>男</sex>
+            <hobby>
+                <ho>唱歌</ho>
+                <ho>游泳</ho>
+                <ho>阅读</ho>
+            </hobby>
+        </person>
+        <person>
+            <name>lily</name>
+            <age>22</age>
+            <sex>女</sex>
+            <hobby>
+                <ho>跳舞</ho>
+                <ho>逛街</ho>
+                <ho>美容</ho>
+            </hobby>
+        </person>
+    </teacher>
+    <student>
+
+    </student>
+</message>
+<?xml version="1.0" encoding="utf-8"?>
+<message>
+    <teacher>
+        <person>
+            <name>静哥</name>
+            <sex>男</sex>
+            <age>比我大10岁</age>
+            <hobby>
+                <ho>
+                    金城会所
+                </ho>
+                <ho>
+                    抽烟
+                </ho>
+                <ho>
+                    钓鱼
+                </ho>
+            </hobby>
+        </person>
+        <person>
+            <name>老罗</name>
+            <sex>男</sex>
+            <age>比我大20岁</age>
+            <hobby>
+                <ho>
+                    金城会所
+                </ho>
+                <ho>
+                    抽烟
+                </ho>
+                <ho>
+                    钓鱼
+                </ho>
+            </hobby>
+        </person>
+        <person>
+            <name>熊健</name>
+            <sex>男</sex>
+            <age>和我一样大</age>
+            <hobby>
+                <ho>
+                    金城会所
+                </ho>
+                <ho>
+                    抽烟
+                </ho>
+                <ho>
+                    钓鱼
+                </ho>
+            </hobby>
+        </person>
+    </teacher>
+
+    <student>
+    
+    </student>
+</message>
