@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>三级联动</title>
+</head>
+
+<body>
+
+  <select id="province">
+    <option>请选择省份</option>
+  </select> 省
+
+  <select id="city">
+    <option>请选择市</option>
+  </select> 市
+
+  <select id="county">
+    <option>请选择区(县)</option>
+  </select> 区(县)
+
+  <script type="text/javascript" src="./js/jquery-1.12.4.js"></script>
+  <script type="text/javascript">
+   $(function(){
+    const p = $('#province');
+		const c =$('#city');
+		const y = $('#county');
+      $("#province").change(function(){
+        $.ajax({
+          type:"get",
+          url:`/userinfo?userid=${$("#province").val()}`,
+          success:function(data){
+            for(let i=0;i<data.length;i++){
+              let html = $('<option value="' + i +'">'+ data[i] +'</option>');  
+              p.append(html)
+            }
+          },
+          dataType:"json"
+        })
+         c.html(' ');
+         t.html(' ');
+         createCity(c,$(this).val());
+         if(c.on('change focus')){
+           c.on('change focus',function(){
+             createArea(t.$(this).val(),p.val())
+           })
+         }
+      })
+		// $(function(){
+		// 	const province = $('#province');
+		// 	const city =$('#city');
+		// 	const country = $('#county');
+		// 	const currentprovince = 0; //获取当前省份的索引值，用于获取当前省份的城市列表
+		// 	const currentCity = 0;	//获取当前市的索引值，用用获取当前市的县区
+		// 	/*
+		// 	加载网页立即执行获取当前省份信息
+		// 	*/
+		// 	(function showprovince(){
+		// 			for(let i=0;i<province.length;i++){
+		// 				province.append('<option ' + 'value = ' + i + '>' + province[i].name + '</option>');
+		// 			}
+		// 	})();
+		// 	/*
+		// 	当省份改变时触发事件，获取当前省份的市列表
+		// 	*/
+		// 	province.change(function(){
+		// 		currentprovince = $("#province").find('option:selected').val();
+		// 		$("#city").html('<option>请选择城市</option>');
+		// 		$('#county').html('<option>请选择县区</option>');
+		// 		var cityLen = province[currentprovince].city.length;
+		// 		for(let i=0;i<cityLen;i++){
+		// 			city.append('<option ' + 'value = ' + i + '>' + province[currentprovince].city[i].name + '</option>')
+		// 		}
+		// 	})
+		// 	/*
+		// 	当市改变城市触发事件，获取当前市的县区列表
+		// 	*/
+		// 	city.change(function(){
+		// 		currentCity = $("#city").find('option:selected').val();
+		// 		$('#county').html('<option>请选择县区</option>');
+		// 		var countryLen = province[currentprovince]["city"][currentCity].districtAndCounty.length;
+		// 		for(let i=0;i<countryLen;i++){
+		// 			country.append('<option ' + 'value = ' + i + '>' + province[currentprovince]["city"][currentCity].districtAndCounty[i] + '</option>')
+		// 		}
+		// 	})
+		// })
+
+  
+  </script>
+</body>
+
+</html>
