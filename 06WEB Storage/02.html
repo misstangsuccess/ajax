@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <button id="btn1">点击本地存储数据</button>
+    <button id="btn2">获取本地存储数据</button>
+    <button id="btn3">移除本地存储的数据</button>
+    <script>
+      /* 
+        临时存储不能跨页面访问,只能当前页面访问
+        关闭页面之后直接消失
+      */
+     const oBtn1=document.getElementById("btn1")
+     const oBtn2=document.getElementById("btn2")
+     const oBtn3=document.getElementById("btn3")
+     oBtn1.onclick=function(){
+       window.sessionStorage.setItem("session","go");
+     }
+     oBtn2.onclick=function(){
+       console.log(sessionStorage);// {session: "go", length: 1}
+       console.log(sessionStorage.getItem("session"));//go
+     }
+     oBtn3.onclick=function(){
+       console.log(sessionStorage.removeItem("session"));
+       //console.log(sessionStorage.clear());//不建议使用
+     }
+    </script>
+  </body>
+</html>

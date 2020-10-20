@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <button id="btn1">点击本地存储数据</button>
+    <button id="btn2">获取本地存储数据</button>
+    <button id="btn3">移除本地存储的数据</button>
+    <script>
+      /* 
+            cookie               localstorage
+            4kb左右                 5M
+            数量有限                不限
+            必须发送给服务端         只有在本地存储
+            可以设置过期时间         永久
+            一般是服务端设置         一般是客户端设置
+      */
+     const oBtn1=document.getElementById("btn1")
+     const oBtn2=document.getElementById("btn2")
+     const oBtn3=document.getElementById("btn3")
+     oBtn1.onclick=function(){
+       window.localStorage.setItem("user","lily");
+       window.localStorage.setItem("pass","12345");
+       window.localStorage.setItem("age","20");
+     }
+     oBtn2.onclick=function(){
+       console.log(localStorage);//{user: "lily", pass: "12345", length: 2}length: 2pass: "12345"user: "lily"__proto__: Storage
+       console.log(localStorage.getItem("user"));//lily
+     }
+     oBtn3.onclick=function(){
+       //console.log(localStorage.removeItem("user"));
+       console.log(localStorage.clear());//不建议使用
+     }
+    </script>
+  </body>
+</html>
